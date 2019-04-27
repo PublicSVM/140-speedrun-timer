@@ -52,9 +52,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: $(system.defaultworkingdirectory)
-    contents: |
-        '**\\bin\\$(BuildConfiguration)\\**'
-        '**\InstallerGUI\dist\**'
+    contents: '**\\InstallerGUI\\dist\\**'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
