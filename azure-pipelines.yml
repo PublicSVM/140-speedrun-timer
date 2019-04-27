@@ -32,14 +32,19 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: Bash@3
+  inputs:
+    targetType: 'filePath'
+    filePath: $(System.DefaultWorkingDirectory)\InstallerGUI\build.sh
+
 - task: CopyFiles@2
   inputs:
     sourceFolder: $(system.defaultworkingdirectory)
-    contents: '**\\bin\\$(BuildConfiguration)\\**'
+    contents: '**' #'**\\bin\\$(BuildConfiguration)\\**'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'drop' 
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
     publishLocation: 'Container'
