@@ -35,7 +35,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: $(Agent.BuildDirectory)
-    #contents: '**' 
+    contents: '**/140-speedrun-timer/bin/$(buildConfiguration)/speedrun-timer.dll'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
