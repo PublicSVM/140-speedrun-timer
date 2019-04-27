@@ -32,15 +32,16 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.4.4'
-    addToPath: true
+## TODO Fix pyinstaller
+# - task: UsePythonVersion@0
+#   inputs:
+#     versionSpec: '3.4.4'
+#     addToPath: true
 
-- task: Bash@3
-  inputs:
-    targetType: 'filePath'
-    filePath: $(System.DefaultWorkingDirectory)\InstallerGUI\build.sh
+# - task: Bash@3
+#   inputs:
+#     targetType: 'filePath'
+#     filePath: $(System.DefaultWorkingDirectory)\InstallerGUI\build.sh
 
 - task: CopyFiles@2
   inputs:
