@@ -64,4 +64,7 @@ steps:
     tagSource: 'manual'
     tag: '$(Build.BuildNumber)'
     isDraft: true
-    assets: $(Build.ArtifactStagingDirectory)/**/*.exe
+    assets: |
+        $(Build.ArtifactStagingDirectory)/**/*.exe
+        $(Build.ArtifactStagingDirectory)/**/*.exe.config
+        $(Build.ArtifactStagingDirectory)/**/Mono.Cecil.dll
