@@ -32,16 +32,23 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-## TODO Fix pyinstaller
-# - task: UsePythonVersion@0
-#   inputs:
-#     versionSpec: '3.4.4'
-#     addToPath: true
 
-# - task: Bash@3
-#   inputs:
-#     targetType: 'filePath'
-#     filePath: $(System.DefaultWorkingDirectory)\InstallerGUI\build.sh
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.4.4'
+    addToPath: true
+
+- script: python -m pip install --upgrade pip
+  displayName: 'Install tools'
+
+- script: pip install -r requirements.txt
+  displayName: 'Install requirements'
+
+- task: Bash@3
+  inputs:
+    targetType: 'filePath'
+    filePath: $(System.DefaultWorkingDirectory)\InstallerGUI\build.sh
+
 
 - task: CopyFiles@2
   inputs:
