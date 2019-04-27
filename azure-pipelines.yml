@@ -46,6 +46,7 @@ steps:
 
 - script: pyinstaller -y InstallerGUI\pyinstaller.spec
   displayName: 'Create installers'
+  workingDirectory: $(Build.SourcesDirectory)\InstallerGUI
 
 
 - task: CopyFiles@2
