@@ -28,7 +28,7 @@ elif p == "linux":
 
 
 # copy windows binaries
-mono_installer_path = "../Installer/bin/Release/"
+mono_installer_path = "./Installer/bin/Release/"
 os.makedirs("datas/bin/windows", exist_ok=True)
 shutil.copy(os.path.join(mono_installer_path, "speedrun-timer-installer.exe"), "datas/bin/windows/")
 shutil.copy(os.path.join(mono_installer_path, "Mono.Cecil.dll"), "datas/bin/windows/")
@@ -40,7 +40,7 @@ if p == "darwin" or p == "linux":
 
 
 # extract version from SharedAssembly.cs and write it to datas/version.txt
-with open("../SharedAssemblyInfo.cs", "r") as f:
+with open("./SharedAssemblyInfo.cs", "r") as f:
 	sharedAssemblyInfo = f.read()
 match = re.search(r"\[assembly: AssemblyVersion\(\"(.+)\"\)\]", sharedAssemblyInfo)
 if match != None:
