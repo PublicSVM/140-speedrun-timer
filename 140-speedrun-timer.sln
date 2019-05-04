@@ -10,9 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installation", "Installation", "{352FB807-A560-4AB3-ABAE-E667A67F8665}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeedrunModInstaller.Services", "SpeedrunModInstaller.Services\SpeedrunModInstaller.Services.csproj", "{0E812122-F004-4792-B8A5-90F43364064B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{262AB257-86E9-49FB-9E38-5B8B9D9A5A21} = {262AB257-86E9-49FB-9E38-5B8B9D9A5A21}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpeedrunModInstaller.ConsoleApp", "SpeedrunModInstaller.ConsoleApp\SpeedrunModInstaller.ConsoleApp.csproj", "{F710935C-255F-40A5-B8C6-28F7817645C9}"
 EndProject

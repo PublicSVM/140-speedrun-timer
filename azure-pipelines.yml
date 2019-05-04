@@ -44,6 +44,11 @@ jobs:
       platform: '$(buildPlatform)'
       configuration: '$(buildConfiguration)'
 
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(system.defaultworkingdirectory)/140-speedrun-timer/bin'
+      artifactName: 'bin' # hack
+      publishLocation: 'Container'
 
 - job: Deploy
 #  condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
@@ -54,6 +59,11 @@ jobs:
     vmImage: 'VS2017-Win2016'
 
   steps:
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      artifactName: 'bin'
+      downloadPath: '$(System.DefaultWorkingDirectory)/140-speedrun-timer'
+
   - task: DotNetCoreCLI@2
     displayName: 'Publish windows installer'
     inputs:
