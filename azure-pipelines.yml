@@ -21,10 +21,10 @@ variables:
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/') }}:
     versionName: $(Build.SourceBranchName)
   installerBaseFileName: speedrun-timer-installer_$(versionName)
-  # ${{ if not(startsWith(variables['Build.SourceBranch'], 'refs/tags/v')) }}:
-  #   buildConfiguration: 'Experimental'
-  # ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/v') }}:
-  buildConfiguration: 'Release'
+  ${{ if not(startsWith(variables['Build.SourceBranch'], 'refs/tags/v')) }}:
+    buildConfiguration: 'Experimental'
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/tags/v') }}:
+    buildConfiguration: 'Release'
 
 pool:
   vmImage: 'VS2017-Win2016'
