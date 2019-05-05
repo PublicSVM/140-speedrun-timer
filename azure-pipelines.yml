@@ -94,12 +94,12 @@ steps:
 # Framework-dependent (requires dotnet core runtime on the client machine)
 - script: dotnet publish -c $(buildConfiguration) -o $(Build.BinariesDirectory)/fdd SpeedrunModInstaller.ConsoleApp/SpeedrunModInstaller.ConsoleApp.csproj
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
-  displayName: 'Publish FDD installer'
+  displayName: 'Publish framework-dependent installer'
 - task: ArchiveFiles@2
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
   displayName: 'Archive framework-dependent installer'
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)/dotnet'
+    rootFolderOrFile: '$(Build.BinariesDirectory)/fdd'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/fdd_$(Build.BuildId).zip'
