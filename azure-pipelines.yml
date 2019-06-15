@@ -30,12 +30,13 @@ pool:
   vmImage: 'VS2017-Win2016'
 
 steps:
-- task: DotNetCoreInstaller@1
+- task: UseDotNet@2
   inputs:
     version: '3.0.x'
     includePreviewVersions: true
 
 - task: NuGetToolInstaller@0
+
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'

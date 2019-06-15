@@ -21,7 +21,14 @@ namespace SpeedrunModInstaller.Avalonia
 				Trace.Listeners.Add(new TextWriterTraceListener(Console.Out));
 				Trace.AutoFlush = true;
 
-				BuildAvaloniaApp().Start(AppMain, args);
+				try
+				{
+					BuildAvaloniaApp().Start(AppMain, args);
+				}
+				catch (Exception ex)
+				{
+					Trace.TraceError($"Crashed due to {ex.GetType().Name}: {ex.Message}");
+				}
 
 				Trace.Flush();
 				Trace.Listeners.Remove(fileWriterListener);
